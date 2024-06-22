@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { pdf } from '@react-pdf/renderer';
 import ResumeForm from './components/ResumeForm/ResumeForm';
 import Pdf from './components/Pdf/Pdf';
-import Template2 from './components/Pdf/Template2';
 
 const App = () => {
   const [formDataFromForm, setFormDataFromForm] = useState(null);
