@@ -1,7 +1,7 @@
 import React from 'react';
 import { Document, Page, Text, View, StyleSheet, Link, Font } from '@react-pdf/renderer';
 
-// Register a font family and its variants
+
 Font.register({
   family: 'Roboto',
   fonts: [
@@ -64,6 +64,16 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+  },
+  grid: {
+    flexDirection: 'row',
+  },
+  centerContainer: {
+    marginLeft: 'auto',
+    marginRight: 250,
+    fontSize: 11,
+    marginBottom: 3,
+    fontFamily: 'Roboto',
   },
 });
 
@@ -141,8 +151,20 @@ const Pdf = ({ formData }) => (
           <Text style={styles.header}>{section.title}</Text>
           {section.items.map((item, idx) => (
             <View key={idx}>
-              <Text style={styles.title}>{item.title}</Text>
-              <Text style={styles.text}>{item.description}</Text>
+              {
+                item.layout == "grid" ? (
+                  <View style={styles.grid}>
+                    <Text style={styles.title}>{item.title}</Text>
+                    <Text style={styles.centerContainer}>{item.description}</Text>
+                  </View>
+                ) : (
+                  <View>
+                    <Text style={styles.title}>{item.title}</Text>
+                    <Text style={styles.text}>{item.description}</Text>
+                  </View>
+                )
+              }
+              
             </View>
           ))}
         </View>

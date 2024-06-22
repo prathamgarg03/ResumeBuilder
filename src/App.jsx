@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { pdf } from '@react-pdf/renderer';
 import ResumeForm from './components/ResumeForm/ResumeForm';
 import Pdf from './components/Pdf/Pdf';
+import Template2 from './components/Pdf/Template2';
 
 const App = () => {
   const [formDataFromForm, setFormDataFromForm] = useState(null);
@@ -33,7 +34,7 @@ const App = () => {
               onClick={downloadPdf}
               className="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700"
             >
-              Download PDF
+              Doenload PDF
             </button>
           </div>
         )}

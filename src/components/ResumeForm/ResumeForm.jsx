@@ -174,7 +174,7 @@ const ResumeForm = ({ onSubmit }) => {
               updateCustomSection(index, { ...customSection, items: updatedItems });
             }}
             removeSection={() => removeSection(index)}
-            defaultValues={{ title: '', description: '' }}
+            defaultValues={{ title: '', description: '', layout: '' }}
             name={`customSections.${index}.items`}
           />
         ))}

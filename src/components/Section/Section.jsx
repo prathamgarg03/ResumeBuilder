@@ -36,11 +36,24 @@ const Section = ({ title, fields, register, append, remove, removeSection, defau
             >
               {Object.keys(defaultValues).map((key) => (
                 <div key={key} className="mb-2">
-                  <input
-                    {...register(`${name}.${index}.${key}`)}
-                    placeholder={key.charAt(0).toUpperCase() + key.slice(1)}
-                    className="w-full px-3 py-2 border rounded mb-2"
-                  />
+                  {
+                    key === "layout" ? (
+                      <select
+                        {...register(`${name}.${index}.${key}`)}
+                        className="w-full px-3 py-2 border rounded mb-2"
+                      >
+                        <option value="">Select Layout</option>
+                        <option value="list">List</option>
+                        <option value="grid">Grid</option>
+                      </select>
+                    ) : (
+                      <input
+                        {...register(`${name}.${index}.${key}`)}
+                        placeholder={key.charAt(0).toUpperCase() + key.slice(1)}
+                        className="w-full px-3 py-2 border rounded mb-2"
+                      />
+                    )
+                  }
                 </div>
               ))}
               <button
